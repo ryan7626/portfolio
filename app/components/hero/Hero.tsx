@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { NeuralBackground } from "./NeuralBackground";
 import { HeroContent } from "./HeroContent";
 import { SocialLinks } from "./SocialLinks";
@@ -9,7 +8,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen w-full overflow-hidden bg-[#fbfbfb] font-sans text-gray-900 selection:bg-gray-200 selection:text-gray-900"
+      className="relative min-h-screen w-full overflow-hidden bg-[#fbfbfb] text-gray-900 selection:bg-gray-200 selection:text-gray-900"
     >
       <NeuralBackground />
 
@@ -19,15 +18,6 @@ export function Hero() {
           <SocialLinks />
         </div>
       </div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-8 w-full text-center text-[10px] text-gray-400 font-mono tracking-widest z-10 mix-blend-difference select-none uppercase pointer-events-none"
-      >
-        © {new Date().getFullYear()} — SYSTEM ONLINE
-      </motion.div>
     </section>
   );
 }

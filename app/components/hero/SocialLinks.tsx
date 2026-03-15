@@ -1,51 +1,82 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, Twitter } from "lucide-react";
+import { Github, Linkedin, Mail, FileText } from "lucide-react";
+import { cn } from "@/app/lib/utils";
 
-export function SocialLinks() {
-  const links = [
-    { icon: <Github className="w-5 h-5" />, href: "https://github.com" },
-    { icon: <Linkedin className="w-5 h-5" />, href: "https://linkedin.com" },
-    { icon: <Twitter className="w-5 h-5" />, href: "https://twitter.com" },
-    { icon: <Mail className="w-5 h-5" />, href: "mailto:hello@example.com" },
-  ];
+interface SocialLink {
+  icon: React.ReactNode;
+  href: string;
+  label: string;
+}
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.8,
-      },
+const links: SocialLink[] = [
+  {
+    icon: <Github className="w-[18px] h-[18px]" />,
+    href: "https://github.com",
+    label: "GitHub",
+  },
+  {
+    icon: <Linkedin className="w-[18px] h-[18px]" />,
+    href: "https://linkedin.com",
+    label: "LinkedIn",
+  },
+  {
+    icon: <Mail className="w-[18px] h-[18px]" />,
+    href: "mailto:hello@example.com",
+    label: "Email",
+  },
+  {
+    icon: <FileText className="w-[18px] h-[18px]" />,
+    href: "/resume.pdf",
+    label: "Resume",
+  },
+];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.8,
     },
-  };
+  },
+};
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 10 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: { type: "spring" as const, stiffness: 300 },
-    },
-  };
+const itemVariants = {
+  hidden: { opacity: 0, y: 10 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring" as const, stiffness: 300 },
+  },
+};
 
+interface SocialLinksProps {
+  className?: string;
+}
+
+export function SocialLinks({ className }: SocialLinksProps) {
   return (
     <motion.div
       variants={containerVariants}
       initial="hidden"
       animate="show"
-      className="flex gap-6 mt-12 items-center justify-center relative z-10"
+      className={cn(
+        "flex gap-5 mt-10 items-center justify-center relative z-10",
+        className,
+      )}
     >
-      {links.map((link, index) => (
+      {links.map((link) => (
         <motion.a
-          key={index}
+          key={link.label}
           variants={itemVariants}
           href={link.href}
-          target="_blank"
+          target={link.href.startsWith("mailto:") ? undefined : "_blank"}
           rel="noopener noreferrer"
-          className="text-gray-400 hover:text-gray-900 transition-colors duration-300"
+          aria-label={link.label}
+          className="text-gray-400 hover:text-gray-800 transition-colors duration-300"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
         >

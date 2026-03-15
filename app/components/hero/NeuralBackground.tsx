@@ -16,9 +16,9 @@ class CanvasNode {
     this.y = Math.random() * height;
     this.originalX = this.x;
     this.originalY = this.y;
-    this.vx = (Math.random() - 0.5) * 0.4;
-    this.vy = (Math.random() - 0.5) * 0.4;
-    this.radius = Math.random() * 1.5 + 0.5;
+    this.vx = (Math.random() - 0.5) * 0.3;
+    this.vy = (Math.random() - 0.5) * 0.3;
+    this.radius = Math.random() * 1.2 + 0.3;
   }
 
   update(
@@ -28,57 +28,50 @@ class CanvasNode {
     mouseY: number | null,
     time: number,
   ) {
-    const driftX = Math.sin(time * 0.0003 + this.originalY) * 0.2;
-    const driftY = Math.cos(time * 0.0002 + this.originalX) * 0.2;
+    // Gentle ambient drift
+    const driftX = Math.sin(time * 0.0003 + this.originalY) * 0.15;
+    const driftY = Math.cos(time * 0.0002 + this.originalX) * 0.15;
 
+    // Subtle cursor gravity — professional, not flashy
     if (mouseX !== null && mouseY !== null) {
       const dx = mouseX - this.x;
       const dy = mouseY - this.y;
       const distance = Math.sqrt(dx * dx + dy * dy);
 
-      if (distance > 0 && distance < 300) {
-        const force = (300 - distance) / 300;
-        const gravity = 0.12;
+      if (distance > 0 && distance < 250) {
+        const force = (250 - distance) / 250;
+        const gravity = 0.08;
         this.vx += (dx / distance) * force * gravity;
         this.vy += (dy / distance) * force * gravity;
       }
     }
 
-    const targetX = this.originalX + driftX * 30;
-    const targetY = this.originalY + driftY * 30;
+    // Drift back to original position
+    const targetX = this.originalX + driftX * 25;
+    const targetY = this.originalY + driftY * 25;
 
-    const returnForce = 0.005;
+    const returnForce = 0.004;
     this.vx += (targetX - this.x) * returnForce;
     this.vy += (targetY - this.y) * returnForce;
 
-    this.vx *= 0.92;
-    this.vy *= 0.92;
+    // Smooth damping
+    this.vx *= 0.93;
+    this.vy *= 0.93;
 
     this.x += this.vx;
     this.y += this.vy;
 
-    if (this.x < 0) {
-      this.x = 0;
-      this.vx *= 0.5;
-    }
-    if (this.x > width) {
-      this.x = width;
-      this.vx *= 0.5;
-    }
-    if (this.y < 0) {
-      this.y = 0;
-      this.vy *= 0.5;
-    }
-    if (this.y > height) {
-      this.y = height;
-      this.vy *= 0.5;
-    }
+    // Soft boundary containment
+    if (this.x < 0) { this.x = 0; this.vx *= 0.5; }
+    if (this.x > width) { this.x = width; this.vx *= 0.5; }
+    if (this.y < 0) { this.y = 0; this.vy *= 0.5; }
+    if (this.y > height) { this.y = height; this.vy *= 0.5; }
   }
 
   draw(ctx: CanvasRenderingContext2D) {
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-    ctx.fillStyle = "rgba(150, 150, 150, 0.4)";
+    ctx.fillStyle = "rgba(160, 160, 160, 0.3)";
     ctx.fill();
   }
 }
@@ -89,7 +82,6 @@ export function NeuralBackground() {
     x: null,
     y: null,
   });
-  const trailRef = useRef<{ x: number; y: number }[]>([]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -102,11 +94,11 @@ export function NeuralBackground() {
     let nodes: CanvasNode[] = [];
 
     const init = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
 
       const area = canvas.width * canvas.height;
-      const count = Math.min(Math.floor(area / 10000), 150);
+      const count = Math.min(Math.floor(area / 14000), 100);
 
       nodes = Array.from(
         { length: count },
@@ -116,37 +108,6 @@ export function NeuralBackground() {
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      // Draw cursor trail with smooth curves
-      if (trailRef.current.length > 1) {
-        for (let i = 0; i < trailRef.current.length - 1; i++) {
-          const current = trailRef.current[i];
-          const next = trailRef.current[i + 1];
-
-          const progress = i / (trailRef.current.length - 1);
-          const opacity = progress * 0.6;
-
-          ctx.beginPath();
-          ctx.moveTo(current.x, current.y);
-
-          if (i < trailRef.current.length - 2) {
-            const nextNext = trailRef.current[i + 2];
-            const cpx = next.x;
-            const cpy = next.y;
-            const endx = (next.x + nextNext.x) / 2;
-            const endy = (next.y + nextNext.y) / 2;
-            ctx.quadraticCurveTo(cpx, cpy, endx, endy);
-          } else {
-            ctx.lineTo(next.x, next.y);
-          }
-
-          ctx.strokeStyle = `rgba(150, 150, 150, ${opacity})`;
-          ctx.lineWidth = 1;
-          ctx.lineCap = "round";
-          ctx.lineJoin = "round";
-          ctx.stroke();
-        }
-      }
 
       nodes.forEach((node) => {
         node.update(
@@ -159,66 +120,58 @@ export function NeuralBackground() {
         node.draw(ctx);
       });
 
+      // Draw connections between nearby nodes
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
           const dx = nodes[i].x - nodes[j].x;
           const dy = nodes[i].y - nodes[j].y;
           const distance = Math.sqrt(dx * dx + dy * dy);
 
-          if (distance < 140) {
+          if (distance < 120) {
             ctx.beginPath();
             ctx.moveTo(nodes[i].x, nodes[i].y);
             ctx.lineTo(nodes[j].x, nodes[j].y);
-            const opacity = (1 - distance / 140) * 0.25;
-            ctx.strokeStyle = `rgba(180, 180, 180, ${opacity})`;
+            const opacity = (1 - distance / 120) * 0.15;
+            ctx.strokeStyle = `rgba(170, 170, 170, ${opacity})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
         }
       }
 
-      if (trailRef.current.length > 6) {
-        trailRef.current = trailRef.current.slice(-6);
-      }
-
       animationFrameId = requestAnimationFrame(animate);
     };
 
     const handleMouseMove = (e: MouseEvent) => {
-      mouseRef.current.x = e.clientX;
-      mouseRef.current.y = e.clientY;
-      trailRef.current.push({ x: e.clientX, y: e.clientY });
+      const rect = canvas.getBoundingClientRect();
+      mouseRef.current.x = e.clientX - rect.left;
+      mouseRef.current.y = e.clientY - rect.top;
     };
 
     const handleMouseLeave = () => {
       mouseRef.current.x = null;
       mouseRef.current.y = null;
-      trailRef.current = [];
     };
 
     init();
     animate();
 
-    const handleResize = () => {
-      init();
-    };
-
-    window.addEventListener("resize", handleResize);
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("mouseleave", handleMouseLeave);
+    window.addEventListener("resize", init);
+    canvas.addEventListener("mousemove", handleMouseMove);
+    canvas.addEventListener("mouseleave", handleMouseLeave);
 
     return () => {
-      window.removeEventListener("resize", handleResize);
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("mouseleave", handleMouseLeave);
+      window.removeEventListener("resize", init);
+      canvas.removeEventListener("mousemove", handleMouseMove);
+      canvas.removeEventListener("mouseleave", handleMouseLeave);
       cancelAnimationFrame(animationFrameId);
     };
   }, []);
 
   return (
-    <div className="fixed inset-0 z-0 bg-[#fbfbfb]">
+    <div className="absolute inset-0 z-0">
       <canvas ref={canvasRef} className="w-full h-full" />
-      <div className="absolute inset-0 bg-linear-to-b from-white/30 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-linear-to-b from-white/20 to-transparent pointer-events-none" />
     </div>
   );
 }
