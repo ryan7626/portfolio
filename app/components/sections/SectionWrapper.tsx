@@ -18,7 +18,7 @@ export function SectionWrapper({ id, className, children }: SectionWrapperProps)
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] as const }}
       className={cn(
-        "min-h-screen flex items-center justify-center px-6 py-24",
+        "min-h-[50vh] flex items-center justify-center px-6 py-24",
         className,
       )}
     >

@@ -107,6 +107,12 @@ export function NeuralBackground() {
     };
 
     const animate = () => {
+      // Pause drawing and physics calculations if scrolled past Hero
+      if (window.scrollY > window.innerHeight) {
+        animationFrameId = requestAnimationFrame(animate);
+        return;
+      }
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       nodes.forEach((node) => {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { sections } from "@/app/data/sections";
@@ -13,6 +13,15 @@ export function Navigation() {
   // Show navbar after scrolling ~60% past the hero
   const visible = progress > 0.6;
 
+  // Close mobile menu on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      if (mobileOpen) setMobileOpen(false);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [mobileOpen]);
+
   return (
     <>
       {/* Desktop + Mobile header bar */}
@@ -23,7 +32,7 @@ export function Navigation() {
           y: visible ? 0 : -20,
         }}
         transition={{ duration: 0.35, ease: "easeOut" }}
-        className="fixed top-0 left-0 right-0 z-50 px-6 md:px-8 py-4"
+        className="fixed top-0 left-0 right-0 z-50 px-6 md:px-8 py-4 h-16 flex items-center"
         style={{
           pointerEvents: visible ? "auto" : "none",
           backdropFilter: visible ? "blur(12px)" : "none",
@@ -32,10 +41,11 @@ export function Navigation() {
           borderBottom: visible ? "1px solid rgba(0,0,0,0.05)" : "none",
         }}
       >
-        <div className="flex items-center justify-between max-w-5xl mx-auto">
+        <div className="flex items-center justify-between w-full max-w-5xl mx-auto">
           {/* Logo */}
           <a
             href="#hero"
+            onClick={() => setMobileOpen(false)}
             className="font-mono text-xs tracking-widest text-gray-500 select-none uppercase"
           >
             AS.DEV
@@ -77,7 +87,7 @@ export function Navigation() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="fixed top-14 left-0 right-0 z-40 md:hidden bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm"
+            className="fixed top-16 left-0 right-0 z-40 md:hidden bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm"
           >
             <div className="flex flex-col px-6 py-4 gap-3">
               {sections.map((section) => (
