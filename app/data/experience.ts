@@ -8,34 +8,46 @@ export interface ExperienceEntry {
 
 export const experience: ExperienceEntry[] = [
   {
-    role: "Software Engineering Intern",
-    company: "Acme Technologies",
-    dateRange: "Jun 2025 — Aug 2025",
-    location: "San Francisco, CA",
-    bullets: [
-      "Built and shipped a real-time analytics dashboard used by 50+ internal stakeholders",
-      "Reduced API response times by 40% through query optimization and caching strategies",
-      "Collaborated with the design team to implement responsive, accessible UI components",
-    ],
-  },
-  {
-    role: "Undergraduate Research Assistant",
-    company: "AI & Systems Lab",
-    dateRange: "Jan 2024 — May 2025",
-    location: "Berkeley, CA",
-    bullets: [
-      "Developed data pipelines for processing large-scale NLP datasets",
-      "Co-authored a paper on efficient transformer inference submitted to a top venue",
-      "Maintained experiment tracking infrastructure using Python and Docker",
-    ],
-  },
-  {
     role: "Teaching Assistant",
-    company: "Department of Computer Science",
-    dateRange: "Aug 2023 — Dec 2023",
+    company: "Rutgers University",
+    dateRange: "Sept 2025 — Current",
+    location: "New Brunswick, NJ",
     bullets: [
-      "Led weekly discussion sections of 30+ students for introductory CS course",
-      "Held office hours and graded assignments with constructive feedback",
+      "Leading a class of 50 students in CS344: Design and Analysis of Algorithms.",
+      "Holding weekly in-person recitations to reinforce theoretical concepts and algorithm design paradigms.",
+      "Conducting consistent office hours to provide technical assistance, debug student logic, and explain grading rubrics.",
+    ],
+  },
+  {
+    role: "Student Tutor",
+    company: "Rutgers Learning Center",
+    dateRange: "Jan 2024 — Current",
+    location: "New Brunswick, NJ",
+    bullets: [
+      "Tutored 100+ students in various software and technology skills including AI, Python, Data Analytics, Numerical Analytics, R, C, and DSA.",
+      "Conducted one-on-one appointments to adapt teaching methods for different foundational skill levels.",
+    ],
+  },
+  {
+    role: "Data Analyst",
+    company: "Enigma Technical Society",
+    dateRange: "Sept 2022 — Aug 2023",
+    location: "Manipal, KA",
+    bullets: [
+      "Collaborated with the data analytics team to leverage predictive models assessing organizational resource distribution.",
+      "Employed Data Mining techniques to cut event resource waste by 25% and reduce overall expenses by 18%.",
+      "Improved decision-making speed by 40% with interactive Power BI dashboards.",
+    ],
+  },
+  {
+    role: "Web Developer",
+    company: "Medilance Healthcare",
+    dateRange: "May 2022 — Aug 2022",
+    location: "Chandigarh, PB",
+    bullets: [
+      "Worked within the Web Development team to enhance overall frontend performance and user experience.",
+      "Reduced page load times by 10-15% through strategic lazy loading and asset optimization.",
+      "Organized product catalog infrastructure for better navigation across a large-scale website system.",
     ],
   },
 ];

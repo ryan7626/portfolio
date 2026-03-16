@@ -9,22 +9,19 @@ export interface EducationEntry {
 
 export const education: EducationEntry[] = [
   {
-    institution: "University of California, Berkeley",
-    degree: "B.S. Computer Science",
-    dateRange: "Aug 2022 — May 2026",
+    institution: "Rutgers NB, State University of New Jersey",
+    degree: "BSc Computer Science, Minor in Mathematics",
+    dateRange: "Sept 2023 — Dec 2025",
     gpa: "3.8 / 4.0",
     coursework: [
-      "Data Structures",
-      "Algorithms",
-      "Operating Systems",
+      "Artificial Intelligence",
       "Machine Learning",
+      "Computer Security",
+      "Graphics",
+      "Artificial Neural Networks",
+      "Operating Systems",
+      "Data Structures and Algorithms"
     ],
-  },
-  {
-    institution: "Springfield High School",
-    degree: "High School Diploma",
-    dateRange: "Aug 2018 — Jun 2022",
-    gpa: "4.0 / 4.0",
-    notes: "Valedictorian · AP Scholar with Distinction",
+    notes: "Dean's List in all semesters · Magna Cum Laude",
   },
 ];

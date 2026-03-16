@@ -10,6 +10,8 @@ class CanvasNode {
   radius: number;
   originalX: number;
   originalY: number;
+  baseVx: number;
+  baseVy: number;
 
   constructor(width: number, height: number) {
     this.x = Math.random() * width;
@@ -18,6 +20,8 @@ class CanvasNode {
     this.originalY = this.y;
     this.vx = (Math.random() - 0.5) * 0.3;
     this.vy = (Math.random() - 0.5) * 0.3;
+    this.baseVx = (Math.random() - 0.5) * 0.1;
+    this.baseVy = (Math.random() - 0.5) * 0.1;
     this.radius = Math.random() * 1.2 + 0.3;
   }
 
@@ -28,6 +32,12 @@ class CanvasNode {
     mouseY: number | null,
     time: number,
   ) {
+    this.originalX += this.baseVx;
+    this.originalY += this.baseVy;
+
+    if (this.originalX < 0 || this.originalX > width) this.baseVx *= -1;
+    if (this.originalY < 0 || this.originalY > height) this.baseVy *= -1;
+
     // Gentle ambient drift
     const driftX = Math.sin(time * 0.0003 + this.originalY) * 0.15;
     const driftY = Math.cos(time * 0.0002 + this.originalX) * 0.15;
@@ -71,7 +81,7 @@ class CanvasNode {
   draw(ctx: CanvasRenderingContext2D) {
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-    ctx.fillStyle = "rgba(160, 160, 160, 0.3)";
+    ctx.fillStyle = "rgba(130, 130, 130, 0.3)";
     ctx.fill();
   }
 }
@@ -98,7 +108,7 @@ export function NeuralBackground() {
       canvas.height = canvas.offsetHeight;
 
       const area = canvas.width * canvas.height;
-      const count = Math.min(Math.floor(area / 14000), 100);
+      const count = Math.min(Math.floor(area / 8000), 160);
 
       nodes = Array.from(
         { length: count },
@@ -138,7 +148,7 @@ export function NeuralBackground() {
             ctx.moveTo(nodes[i].x, nodes[i].y);
             ctx.lineTo(nodes[j].x, nodes[j].y);
             const opacity = (1 - distance / 120) * 0.15;
-            ctx.strokeStyle = `rgba(170, 170, 170, ${opacity})`;
+            ctx.strokeStyle = `rgba(140, 140, 140, ${opacity})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }

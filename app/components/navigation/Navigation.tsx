@@ -35,10 +35,10 @@ export function Navigation() {
         className="fixed top-0 left-0 right-0 z-50 px-6 md:px-8 py-4 h-16 flex items-center"
         style={{
           pointerEvents: visible ? "auto" : "none",
-          backdropFilter: visible ? "blur(12px)" : "none",
-          WebkitBackdropFilter: visible ? "blur(12px)" : "none",
-          backgroundColor: visible ? "rgba(251, 251, 251, 0.85)" : "transparent",
-          borderBottom: visible ? "1px solid rgba(0,0,0,0.05)" : "none",
+          backdropFilter: visible ? "saturate(180%) blur(20px)" : "none",
+          WebkitBackdropFilter: visible ? "saturate(180%) blur(20px)" : "none",
+          backgroundColor: visible ? "rgba(255, 255, 255, 0.65)" : "transparent",
+          borderBottom: visible ? "1px solid rgba(0,0,0,0.1)" : "none",
         }}
       >
         <div className="flex items-center justify-between w-full max-w-5xl mx-auto">
@@ -87,7 +87,11 @@ export function Navigation() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="fixed top-16 left-0 right-0 z-40 md:hidden bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm"
+            className="fixed top-16 left-0 right-0 z-40 md:hidden bg-white/65 border-b border-gray-200/50 shadow-sm"
+            style={{
+              backdropFilter: "saturate(180%) blur(20px)",
+              WebkitBackdropFilter: "saturate(180%) blur(20px)",
+            }}
           >
             <div className="flex flex-col px-6 py-4 gap-3">
               {sections.map((section) => (
