@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useTheme } from "next-themes";
 
 class CanvasNode {
   x: number;
@@ -78,20 +79,26 @@ class CanvasNode {
     if (this.y > height) { this.y = height; this.vy *= 0.5; }
   }
 
-  draw(ctx: CanvasRenderingContext2D) {
+  draw(ctx: CanvasRenderingContext2D, isDark: boolean) {
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-    ctx.fillStyle = "rgba(130, 130, 130, 0.3)";
+    ctx.fillStyle = isDark ? "rgba(200, 200, 200, 0.45)" : "rgba(90, 90, 90, 0.45)";
     ctx.fill();
   }
 }
 
 export function NeuralBackground() {
+  const { resolvedTheme } = useTheme();
+  const isDarkRef = useRef(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mouseRef = useRef<{ x: number | null; y: number | null }>({
     x: null,
     y: null,
   });
+
+  useEffect(() => {
+    isDarkRef.current = resolvedTheme === "dark";
+  }, [resolvedTheme]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -133,7 +140,7 @@ export function NeuralBackground() {
           mouseRef.current.y,
           performance.now(),
         );
-        node.draw(ctx);
+        node.draw(ctx, isDarkRef.current);
       });
 
       // Draw connections between nearby nodes
@@ -147,8 +154,10 @@ export function NeuralBackground() {
             ctx.beginPath();
             ctx.moveTo(nodes[i].x, nodes[i].y);
             ctx.lineTo(nodes[j].x, nodes[j].y);
-            const opacity = (1 - distance / 120) * 0.15;
-            ctx.strokeStyle = `rgba(140, 140, 140, ${opacity})`;
+            const opacity = (1 - distance / 120) * 0.25;
+            ctx.strokeStyle = isDarkRef.current 
+              ? `rgba(200, 200, 200, ${opacity})`
+              : `rgba(100, 100, 100, ${opacity})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
@@ -187,7 +196,7 @@ export function NeuralBackground() {
   return (
     <div className="absolute inset-0 z-0">
       <canvas ref={canvasRef} className="w-full h-full" />
-      <div className="absolute inset-0 bg-linear-to-b from-white/20 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-linear-to-b from-white/20 dark:from-transparent to-transparent pointer-events-none" />
     </div>
   );
 }

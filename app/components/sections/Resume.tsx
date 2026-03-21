@@ -1,17 +1,21 @@
 "use client";
 
+import { useState } from "react";
 import { SectionWrapper } from "./SectionWrapper";
-import { Download, FileText } from "lucide-react";
-import { motion } from "framer-motion";
+import { Download, FileText, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 export function Resume() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
-    <SectionWrapper id="resume" className="bg-[#fafafa]">
+    <SectionWrapper id="resume" className="bg-[#fafafa] dark:bg-zinc-950/50">
       <div className="max-w-4xl w-full flex flex-col items-center">
-        <h2 className="text-3xl font-medium tracking-tight text-gray-900 mb-2 text-center">
+        <h2 className="text-3xl font-medium tracking-tight text-gray-900 dark:text-zinc-100 mb-2 text-center">
           Resume
         </h2>
-        <p className="text-sm text-gray-400 text-center mb-12 tracking-wide">
+        <p className="text-sm text-gray-400 dark:text-zinc-400 text-center mb-12 tracking-wide">
           Download the full PDF version
         </p>
 
@@ -19,10 +23,10 @@ export function Resume() {
           
           {/* Left: Action CTA */}
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left order-2 lg:order-1 px-4">
-            <h3 className="text-2xl font-medium text-gray-900 mb-4">
+            <h3 className="text-2xl font-medium text-gray-900 dark:text-zinc-100 mb-4">
               Keep a Copy of My Resume
             </h3>
-            <p className="text-gray-500 mb-8 max-w-sm leading-relaxed">
+            <p className="text-gray-500 dark:text-zinc-400 mb-8 max-w-sm leading-relaxed">
               Grab a polished PDF version with my experience, technical
               projects, and academic background for recruiting or hiring
               review.
@@ -32,7 +36,7 @@ export function Resume() {
               <a
                 href="/resume.pdf"
                 download
-                className="flex items-center justify-center gap-2 px-8 py-3.5 bg-gray-900 hover:bg-gray-800 text-white rounded-full text-sm font-medium transition-colors shadow-sm w-full sm:w-auto"
+                className="flex items-center justify-center gap-2 px-8 py-3.5 bg-gray-900 dark:bg-zinc-100 hover:bg-gray-800 dark:hover:bg-zinc-200 text-white dark:text-zinc-900 rounded-full text-sm font-medium transition-colors shadow-sm w-full sm:w-auto"
               >
                 <Download className="w-4 h-4" />
                 Download PDF
@@ -41,7 +45,7 @@ export function Resume() {
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 px-8 py-3.5 bg-white border border-gray-200 hover:border-gray-300 hover:bg-gray-50 text-gray-700 rounded-full text-sm font-medium transition-colors shadow-xs w-full sm:w-auto"
+                className="flex items-center justify-center gap-2 px-8 py-3.5 bg-white dark:bg-zinc-800/50 border border-gray-200 dark:border-white/10 hover:border-gray-300 dark:hover:border-white/20 hover:bg-gray-50 dark:hover:bg-zinc-800 text-gray-700 dark:text-zinc-300 hover:text-gray-900 dark:hover:text-zinc-100 rounded-full text-sm font-medium transition-colors shadow-xs w-full sm:w-auto"
               >
                 <FileText className="w-4 h-4" />
                 View in Browser
@@ -49,61 +53,70 @@ export function Resume() {
             </div>
           </div>
 
-          {/* Right: Stylized Preview Document */}
+          {/* Right: Actual Resume Snapshot */}
           <div className="order-1 lg:order-2 flex justify-center w-full px-4">
             <motion.div 
               initial={{ y: 20, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="relative w-full max-w-[320px] sm:max-w-xs md:max-w-sm aspect-[1/1.414] bg-white rounded-lg shadow-xl border border-gray-100 p-6 sm:p-8 flex flex-col gap-4 overflow-hidden select-none pointer-events-none"
+              className="relative w-full max-w-[320px] sm:max-w-xs md:max-w-sm aspect-[8.5/11] bg-white dark:bg-zinc-900 rounded-lg shadow-xl border border-gray-100 dark:border-white/5 overflow-hidden cursor-pointer group"
+              onClick={() => setIsModalOpen(true)}
             >
-              {/* Decorative document header lines */}
-              <div className="w-full flex justify-between items-start mb-2">
-                <div className="space-y-2">
-                  <div className="h-3 sm:h-4 w-24 sm:w-32 bg-gray-800 rounded-sm" />
-                  <div className="h-2 w-24 sm:w-28 bg-gray-300 rounded-sm" />
-                </div>
-                <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-gray-100" />
-              </div>
-
-              {/* Decorative body blocks */}
-              <div className="w-full h-px bg-gray-100 my-1" />
-              
-              <div className="space-y-3 mt-2">
-                <div className="h-2 w-1/4 bg-gray-200 rounded-sm" />
-                <div className="space-y-2">
-                  <div className="h-1.5 w-full bg-gray-100 rounded-sm" />
-                  <div className="h-1.5 w-5/6 bg-gray-100 rounded-sm" />
-                  <div className="h-1.5 w-4/6 bg-gray-100 rounded-sm" />
-                </div>
-              </div>
-
-              <div className="space-y-3 mt-4">
-                <div className="h-2 w-1/3 bg-gray-200 rounded-sm" />
-                <div className="space-y-2">
-                  <div className="h-1.5 w-full bg-gray-100 rounded-sm" />
-                  <div className="h-1.5 w-full bg-gray-100 rounded-sm" />
-                  <div className="h-1.5 w-3/4 bg-gray-100 rounded-sm" />
-                </div>
-              </div>
-
-              <div className="space-y-3 mt-4">
-                <div className="h-2 w-1/4 bg-gray-200 rounded-sm" />
-                <div className="space-y-2 flex gap-2">
-                  <div className="h-4 w-12 bg-gray-100 rounded-full" />
-                  <div className="h-4 w-16 bg-gray-100 rounded-full" />
-                  <div className="h-4 w-14 bg-gray-100 rounded-full" />
-                </div>
-              </div>
-
-              {/* Faded bottom gradient overlay */}
-              <div className="absolute inset-x-0 bottom-0 h-24 bg-linear-to-t from-white to-transparent" />
+              <Image 
+                src="/resume.png" 
+                alt="Resume Preview" 
+                fill 
+                className="object-contain object-top transition-transform duration-500 group-hover:scale-[1.02] p-2" 
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300" />
             </motion.div>
           </div>
 
         </div>
       </div>
+
+      {/* Full-Screen Modal */}
+      <AnimatePresence>
+        {isModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 md:p-8"
+            onClick={() => setIsModalOpen(false)}
+          >
+            <button 
+              className="absolute top-4 right-4 md:top-6 md:right-6 p-2 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 rounded-full backdrop-blur-md transition-all z-[101]"
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsModalOpen(false);
+              }}
+              aria-label="Close modal"
+            >
+              <X className="w-6 h-6" />
+            </button>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 10 }}
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="relative w-full max-w-5xl h-[85vh] md:h-[95vh] rounded-xl overflow-hidden shadow-2xl bg-white dark:bg-zinc-900"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Image 
+                src="/resume.png" 
+                alt="Resume Full View" 
+                fill 
+                className="object-contain"
+                quality={100}
+                priority
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </SectionWrapper>
   );
 }

@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { sections } from "@/app/data/sections";
 import { useScrollProgress } from "@/app/lib/useScrollProgress";
+import { ThemeToggle } from "./ThemeToggle";
 
 export function Navigation() {
   const progress = useScrollProgress();
@@ -32,16 +33,16 @@ export function Navigation() {
           y: visible ? 0 : -20,
         }}
         transition={{ duration: 0.35, ease: "easeOut" }}
-        className="fixed top-0 left-0 right-0 z-50 px-6 md:px-8 py-4 h-16 flex items-center"
+        className={`fixed top-0 left-0 right-0 z-50 px-6 md:px-8 py-4 h-16 flex items-center transition-colors duration-300 ${
+          visible
+            ? "bg-white/65 dark:bg-black/50 backdrop-blur-[20px] saturate-[1.8] border-b border-black/10 dark:border-white/10"
+            : "bg-transparent border-transparent"
+        }`}
         style={{
           pointerEvents: visible ? "auto" : "none",
-          backdropFilter: visible ? "saturate(180%) blur(20px)" : "none",
-          WebkitBackdropFilter: visible ? "saturate(180%) blur(20px)" : "none",
-          backgroundColor: visible ? "rgba(255, 255, 255, 0.65)" : "transparent",
-          borderBottom: visible ? "1px solid rgba(0,0,0,0.1)" : "none",
         }}
       >
-        <div className="flex items-center justify-between w-full max-w-5xl mx-auto">
+        <div className="flex items-center justify-between w-full">
           {/* Logo */}
           <a
             href="#hero"
@@ -51,31 +52,38 @@ export function Navigation() {
             ARYAN.RAUT
           </a>
 
-          {/* Desktop nav */}
-          <nav className="hidden md:flex gap-7">
-            {sections.map((section) => (
-              <a
-                key={section.id}
-                href={`#${section.id}`}
-                className="text-sm tracking-wide text-gray-500 hover:text-gray-900 transition-colors duration-200 select-none"
-              >
-                {section.label}
-              </a>
-            ))}
-          </nav>
+          {/* Desktop nav & Theme */}
+          <div className="hidden md:flex items-center gap-7">
+            <nav className="flex gap-7">
+              {sections.map((section) => (
+                <a
+                  key={section.id}
+                  href={`#${section.id}`}
+                  className="text-sm tracking-wide text-gray-500 hover:text-gray-900 dark:hover:text-gray-100 transition-colors duration-200 select-none"
+                >
+                  {section.label}
+                </a>
+              ))}
+            </nav>
+            <div className="w-px h-4 bg-gray-200 dark:bg-zinc-800" />
+            <ThemeToggle />
+          </div>
 
-          {/* Mobile hamburger */}
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden p-1 text-gray-500 hover:text-gray-900 transition-colors"
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? (
-              <X className="w-5 h-5" />
-            ) : (
-              <Menu className="w-5 h-5" />
-            )}
-          </button>
+          {/* Mobile hamburger & Theme */}
+          <div className="flex md:hidden items-center gap-2">
+            <ThemeToggle />
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="p-1 text-gray-500 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+              aria-label="Toggle menu"
+            >
+              {mobileOpen ? (
+                <X className="w-5 h-5" />
+              ) : (
+                <Menu className="w-5 h-5" />
+              )}
+            </button>
+          </div>
         </div>
       </motion.header>
 

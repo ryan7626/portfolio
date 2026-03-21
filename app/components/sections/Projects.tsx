@@ -22,10 +22,10 @@ export function Projects() {
     <SectionWrapper id="projects">
       <div className="max-w-5xl w-full">
         {/* Section header */}
-        <h2 className="text-3xl font-medium tracking-tight text-gray-900 mb-2 text-center">
+        <h2 className="text-3xl font-medium tracking-tight text-gray-900 dark:text-zinc-100 mb-2 text-center">
           Projects
         </h2>
-        <p className="text-sm text-gray-400 text-center mb-10 tracking-wide">
+        <p className="text-sm text-gray-400 dark:text-zinc-400 text-center mb-10 tracking-wide">
           Selected engineering and machine learning work
         </p>
 
@@ -38,8 +38,8 @@ export function Projects() {
               className={cn(
                 "px-4 py-2 rounded-full text-sm font-medium transition-all duration-300",
                 activeCategory === category
-                  ? "bg-gray-900 text-white shadow-md"
-                  : "bg-gray-100 text-gray-500 hover:bg-gray-200 hover:text-gray-900",
+                  ? "bg-gray-900 dark:bg-zinc-100 text-white dark:text-zinc-900 shadow-md"
+                  : "bg-gray-100 dark:bg-zinc-800/50 text-gray-500 dark:text-zinc-400 hover:bg-gray-200 dark:hover:bg-zinc-800 hover:text-gray-900 dark:hover:text-zinc-100",
               )}
             >
               {category}
@@ -59,10 +59,10 @@ export function Projects() {
                 transition={{ duration: 0.3 }}
                 key={project.id}
                 onClick={() => setSelectedProject(project)}
-                className="group relative bg-white border border-gray-100 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-500 hover:-translate-y-1 cursor-pointer"
+                className="group relative bg-white dark:bg-zinc-900/50 border border-gray-100 dark:border-white/5 rounded-2xl overflow-hidden hover:shadow-xl dark:shadow-none transition-all duration-500 hover:-translate-y-1 cursor-pointer"
               >
                 {/* Thumbnail container */}
-                <div className="relative h-48 w-full bg-gray-100 overflow-hidden">
+                <div className="relative h-48 w-full bg-gray-100 dark:bg-zinc-800/50 overflow-hidden">
                   <Image
                     src={project.thumbnailUrl}
                     alt={project.title}
@@ -77,19 +77,19 @@ export function Projects() {
                 {/* Content */}
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-xs font-mono text-gray-400 uppercase tracking-wider">
+                    <span className="text-xs font-mono text-gray-400 dark:text-zinc-500 uppercase tracking-wider">
                       {project.category}
                     </span>
                   </div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2 leading-tight">
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-zinc-100 mb-2 leading-tight">
                     {project.title}
                   </h3>
-                  <p className="text-sm text-gray-500 leading-relaxed line-clamp-2">
+                  <p className="text-sm text-gray-500 dark:text-zinc-400 leading-relaxed line-clamp-2">
                     {project.shortDescription}
                   </p>
                   
                   {/* Subtle indication it's clickable (for future modal) */}
-                  <div className="mt-4 pt-4 border-t border-gray-100 flex items-center text-xs font-medium text-gray-400 group-hover:text-gray-900 transition-colors">
+                  <div className="mt-4 pt-4 border-t border-gray-100 dark:border-white/5 flex items-center text-xs font-medium text-gray-400 dark:text-zinc-500 group-hover:text-gray-900 dark:group-hover:text-zinc-300 transition-colors">
                     Open Case Study &rarr;
                   </div>
                 </div>

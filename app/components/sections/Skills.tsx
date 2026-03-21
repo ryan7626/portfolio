@@ -39,17 +39,17 @@ export function Skills() {
   return (
     <SectionWrapper id="skills">
       <div className="max-w-4xl w-full">
-        <h2 className="text-3xl font-medium tracking-tight text-gray-900 mb-2 text-center">
+        <h2 className="text-3xl font-medium tracking-tight text-gray-900 dark:text-zinc-100 mb-2 text-center">
           Skills
         </h2>
-        <p className="text-sm text-gray-400 text-center mb-10 tracking-wide">
+        <p className="text-sm text-gray-400 dark:text-zinc-400 text-center mb-10 tracking-wide">
           Core stack across software, AI/ML, and analytics
         </p>
 
         {/* Responsive graph container */}
         <div 
           ref={containerRef}
-          className="relative w-full aspect-square md:aspect-4/3 lg:aspect-video bg-white rounded-3xl border border-gray-100 shadow-sm overflow-hidden select-none"
+          className="relative w-full aspect-square md:aspect-4/3 lg:aspect-video bg-white dark:bg-zinc-900/40 rounded-3xl border border-gray-100 dark:border-white/5 shadow-sm overflow-hidden select-none"
         >
           
           {/* SVG layer for edges */}
@@ -77,10 +77,10 @@ export function Skills() {
                   className={cn(
                     "transition-all duration-300",
                     isActive
-                      ? "stroke-gray-900 stroke-[2px]"
+                      ? "stroke-gray-900 dark:stroke-zinc-300 stroke-[2px]"
                       : isFaded
-                      ? "stroke-gray-100 stroke-[1px] opacity-30"
-                      : "stroke-gray-200 stroke-[1.5px]"
+                      ? "stroke-gray-100 dark:stroke-zinc-800/30 stroke-[1px] opacity-30"
+                      : "stroke-gray-200 dark:stroke-zinc-800 stroke-[1.5px]"
                   )}
                 />
               );
@@ -115,10 +115,10 @@ export function Skills() {
                     className={cn(
                       "w-2.5 h-2.5 rounded-full transition-all duration-300",
                       isHovered || isConnected
-                        ? "bg-gray-900 scale-125 shadow-[0_0_12px_rgba(0,0,0,0.15)]"
+                        ? "bg-gray-900 dark:bg-zinc-100 scale-125 shadow-[0_0_12px_rgba(0,0,0,0.15)] dark:shadow-[0_0_12px_rgba(255,255,255,0.15)]"
                         : isFaded
-                        ? "bg-gray-200 opacity-50"
-                        : "bg-white border-2 border-gray-300"
+                        ? "bg-gray-200 dark:bg-zinc-800 opacity-50"
+                        : "bg-white dark:bg-zinc-950 border-2 border-gray-300 dark:border-zinc-700"
                     )}
                   />
                   
@@ -127,10 +127,10 @@ export function Skills() {
                     className={cn(
                       "absolute top-6 whitespace-nowrap text-xs transition-all duration-300 pointer-events-none",
                       isHovered || isConnected
-                        ? "text-gray-900 font-semibold"
+                        ? "text-gray-900 dark:text-zinc-100 font-semibold"
                         : isFaded
-                        ? "text-gray-300 opacity-50"
-                        : "text-gray-500 font-medium"
+                        ? "text-gray-300 dark:text-zinc-600 opacity-50"
+                        : "text-gray-500 dark:text-zinc-400 font-medium"
                     )}
                   >
                     {node.label}

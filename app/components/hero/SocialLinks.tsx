@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, FileText } from "lucide-react";
 import { cn } from "@/app/lib/utils";
+import { ThemeToggle } from "../navigation/ThemeToggle";
 
 interface SocialLink {
   icon: React.ReactNode;
@@ -76,13 +77,17 @@ export function SocialLinks({ className }: SocialLinksProps) {
           target={link.href.startsWith("mailto:") ? undefined : "_blank"}
           rel="noopener noreferrer"
           aria-label={link.label}
-          className="text-gray-400 hover:text-gray-800 transition-colors duration-300"
+          className="text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 transition-colors duration-300"
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
         >
           {link.icon}
         </motion.a>
       ))}
+      <motion.div variants={itemVariants} className="w-px h-4 bg-gray-300 dark:bg-zinc-700 mx-1" />
+      <motion.div variants={itemVariants}>
+        <ThemeToggle />
+      </motion.div>
     </motion.div>
   );
 }

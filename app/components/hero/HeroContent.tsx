@@ -33,7 +33,7 @@ export function HeroContent() {
       {/* Name */}
       <motion.h1
         variants={itemVariants}
-        className="text-4xl md:text-6xl font-medium tracking-tight text-gray-900 mb-3"
+        className="text-4xl md:text-6xl font-medium tracking-tight text-gray-900 dark:text-zinc-100 mb-3"
         style={{ letterSpacing: "-0.02em" }}
       >
         Aryan Raut
@@ -42,13 +42,13 @@ export function HeroContent() {
       {/* Divider */}
       <motion.div
         variants={itemVariants}
-        className="h-px w-10 bg-gray-300 mb-5 mx-auto"
+        className="h-px w-10 bg-gray-300 dark:bg-zinc-700 mb-5 mx-auto"
       />
 
       {/* Quote */}
       <motion.p
         variants={itemVariants}
-        className="text-sm md:text-base text-gray-400 font-light italic tracking-wide mb-6"
+        className="text-sm md:text-base text-gray-400 dark:text-zinc-500 font-light italic tracking-wide mb-6"
       >
         AI/ML, full-stack systems, and data-driven product work.
       </motion.p>
@@ -56,7 +56,7 @@ export function HeroContent() {
       {/* Recruiter-facing description */}
       <motion.p
         variants={itemVariants}
-        className="text-base md:text-lg text-gray-500 font-light tracking-wide max-w-lg mx-auto leading-relaxed"
+        className="text-base md:text-lg text-gray-500 dark:text-zinc-400 font-light tracking-wide max-w-lg mx-auto leading-relaxed"
       >
         Rutgers computer science graduate focused on building intelligent,
         scalable software across machine learning, analytics, and modern web

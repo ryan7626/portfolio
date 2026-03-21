@@ -6,17 +6,17 @@ export function Experience() {
     <SectionWrapper id="experience">
       <div className="max-w-2xl w-full">
         {/* Section heading */}
-        <h2 className="text-3xl font-medium tracking-tight text-gray-900 mb-2 text-center">
+        <h2 className="text-3xl font-medium tracking-tight text-gray-900 dark:text-zinc-100 mb-2 text-center">
           Experience
         </h2>
-        <p className="text-sm text-gray-400 text-center mb-14 tracking-wide">
+        <p className="text-sm text-gray-400 dark:text-zinc-400 text-center mb-14 tracking-wide">
           Teaching, analytics, and product engineering experience
         </p>
 
         {/* Timeline */}
         <div className="relative">
           {/* Vertical line */}
-          <div className="absolute left-[7px] top-2 bottom-2 w-px bg-gray-200 md:left-1/2 md:-translate-x-px" />
+          <div className="absolute left-[7px] top-2 bottom-2 w-px bg-gray-200 dark:bg-zinc-800 md:left-1/2 md:-translate-x-px" />
 
           <div className="flex flex-col gap-14">
             {experience.map((entry, index) => (
@@ -25,15 +25,15 @@ export function Experience() {
                 className="relative pl-8 md:pl-0 md:grid md:grid-cols-2 md:gap-10"
               >
                 {/* Timeline dot */}
-                <div className="absolute left-0 top-1.5 w-[15px] h-[15px] rounded-full border-2 border-gray-300 bg-white z-10 md:left-1/2 md:-translate-x-1/2" />
+                <div className="absolute left-0 top-1.5 w-[15px] h-[15px] rounded-full border-2 border-gray-300 dark:border-zinc-700 bg-white dark:bg-zinc-950 z-10 md:left-1/2 md:-translate-x-1/2" />
 
                 {/* Left column — dates & location (desktop) */}
                 <div className="hidden md:flex md:flex-col md:items-end md:pt-0.5">
-                  <span className="text-sm text-gray-400 font-mono tracking-wide">
+                  <span className="text-sm text-gray-400 dark:text-zinc-500 font-mono tracking-wide">
                     {entry.dateRange}
                   </span>
                   {entry.location && (
-                    <span className="text-xs text-gray-300 mt-0.5">
+                    <span className="text-xs text-gray-300 dark:text-zinc-600 mt-0.5">
                       {entry.location}
                     </span>
                   )}
@@ -43,20 +43,20 @@ export function Experience() {
                 <div>
                   {/* Mobile date & location */}
                   <div className="md:hidden">
-                    <span className="text-xs text-gray-400 font-mono tracking-wide">
+                    <span className="text-xs text-gray-400 dark:text-zinc-500 font-mono tracking-wide">
                       {entry.dateRange}
                     </span>
                     {entry.location && (
-                      <span className="text-xs text-gray-300 ml-2">
+                      <span className="text-xs text-gray-300 dark:text-zinc-600 ml-2">
                         · {entry.location}
                       </span>
                     )}
                   </div>
 
-                  <h3 className="text-lg font-medium text-gray-900 mt-1 md:mt-0 leading-tight">
+                  <h3 className="text-lg font-medium text-gray-900 dark:text-zinc-100 mt-1 md:mt-0 leading-tight">
                     {entry.role}
                   </h3>
-                  <p className="text-sm text-gray-500 mt-0.5">
+                  <p className="text-sm text-gray-500 dark:text-zinc-400 mt-0.5">
                     {entry.company}
                   </p>
 
@@ -65,7 +65,7 @@ export function Experience() {
                       {entry.bullets.map((bullet, i) => (
                         <li
                           key={i}
-                          className="text-sm text-gray-500 leading-relaxed pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[9px] before:w-1.5 before:h-px before:bg-gray-300"
+                          className="text-sm text-gray-500 dark:text-zinc-400 leading-relaxed pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[9px] before:w-1.5 before:h-px before:bg-gray-300 dark:before:bg-zinc-700"
                         >
                           {bullet}
                         </li>
