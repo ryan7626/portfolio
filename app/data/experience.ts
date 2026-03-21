@@ -10,7 +10,7 @@ export const experience: ExperienceEntry[] = [
   {
     role: "Teaching Assistant",
     company: "Rutgers University",
-    dateRange: "Sept 2025 — Present",
+    dateRange: "Sept 2025 — Jan 2026",
     location: "New Brunswick, NJ",
     bullets: [
       "Lead weekly recitations and office hours for 50 students in CS344: Design and Analysis of Algorithms.",
@@ -21,7 +21,7 @@ export const experience: ExperienceEntry[] = [
   {
     role: "Student Tutor",
     company: "Rutgers Learning Center",
-    dateRange: "Jan 2024 — Present",
+    dateRange: "Jan 2024 — Jan 2026",
     location: "New Brunswick, NJ",
     bullets: [
       "Provide one-on-one tutoring to 100+ students across AI, Python, data analytics, numerical methods, R, C, and data structures and algorithms.",
