@@ -10,22 +10,22 @@ export const experience: ExperienceEntry[] = [
   {
     role: "Teaching Assistant",
     company: "Rutgers University",
-    dateRange: "Sept 2025 — Current",
+    dateRange: "Sept 2025 — Present",
     location: "New Brunswick, NJ",
     bullets: [
-      "Leading a class of 50 students in CS344: Design and Analysis of Algorithms.",
-      "Holding weekly in-person recitations to reinforce theoretical concepts and algorithm design paradigms.",
-      "Conducting consistent office hours to provide technical assistance, debug student logic, and explain grading rubrics.",
+      "Lead weekly recitations and office hours for 50 students in CS344: Design and Analysis of Algorithms.",
+      "Reinforce algorithm design, complexity analysis, and problem-solving strategies through guided review and discussion.",
+      "Support students with debugging, conceptual clarification, and exam preparation in a rigorous upper-level computer science course.",
     ],
   },
   {
     role: "Student Tutor",
     company: "Rutgers Learning Center",
-    dateRange: "Jan 2024 — Current",
+    dateRange: "Jan 2024 — Present",
     location: "New Brunswick, NJ",
     bullets: [
-      "Tutored 100+ students in various software and technology skills including AI, Python, Data Analytics, Numerical Analytics, R, C, and DSA.",
-      "Conducted one-on-one appointments to adapt teaching methods for different foundational skill levels.",
+      "Provide one-on-one tutoring to 100+ students across AI, Python, data analytics, numerical methods, R, C, and data structures and algorithms.",
+      "Adapt instruction to varied learning styles and skill levels, helping students strengthen technical fluency and academic confidence.",
     ],
   },
   {
@@ -34,9 +34,9 @@ export const experience: ExperienceEntry[] = [
     dateRange: "Sept 2022 — Aug 2023",
     location: "Manipal, KA",
     bullets: [
-      "Collaborated with the data analytics team to leverage predictive models assessing organizational resource distribution.",
-      "Employed Data Mining techniques to cut event resource waste by 25% and reduce overall expenses by 18%.",
-      "Improved decision-making speed by 40% with interactive Power BI dashboards.",
+      "Applied predictive analytics and data mining techniques to optimize event planning and resource allocation.",
+      "Reduced resource waste by 25% and operating expenses by 18% through data-informed recommendations.",
+      "Built interactive Power BI dashboards that improved planning visibility and accelerated decision-making by 40%.",
     ],
   },
   {
@@ -45,9 +45,9 @@ export const experience: ExperienceEntry[] = [
     dateRange: "May 2022 — Aug 2022",
     location: "Chandigarh, PB",
     bullets: [
-      "Worked within the Web Development team to enhance overall frontend performance and user experience.",
-      "Reduced page load times by 10-15% through strategic lazy loading and asset optimization.",
-      "Organized product catalog infrastructure for better navigation across a large-scale website system.",
+      "Improved frontend performance for a large-scale healthcare platform by implementing lazy loading and asset optimization.",
+      "Reduced page load times by 10-15% and improved overall browsing responsiveness.",
+      "Restructured product catalog navigation to create a more intuitive user journey and increase engagement.",
     ],
   },
 ];

@@ -8,7 +8,7 @@ import { ProjectModal } from "./ProjectModal";
 import { cn } from "@/app/lib/utils";
 import Image from "next/image";
 
-const categories: ProjectCategory[] = ["All", "Web", "Machine Learning", "Systems"];
+const categories: ProjectCategory[] = ["All", "AI/ML", "Full Stack"];
 
 export function Projects() {
   const [activeCategory, setActiveCategory] = useState<ProjectCategory>("All");
@@ -26,7 +26,7 @@ export function Projects() {
           Projects
         </h2>
         <p className="text-sm text-gray-400 text-center mb-10 tracking-wide">
-          Selected technical work
+          Selected engineering and machine learning work
         </p>
 
         {/* Category Selector */}
@@ -90,7 +90,7 @@ export function Projects() {
                   
                   {/* Subtle indication it's clickable (for future modal) */}
                   <div className="mt-4 pt-4 border-t border-gray-100 flex items-center text-xs font-medium text-gray-400 group-hover:text-gray-900 transition-colors">
-                    View Details &rarr;
+                    Open Case Study &rarr;
                   </div>
                 </div>
               </motion.div>

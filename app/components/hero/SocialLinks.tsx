@@ -13,23 +13,23 @@ interface SocialLink {
 const links: SocialLink[] = [
   {
     icon: <Github className="w-[18px] h-[18px]" />,
-    href: "https://github.com",
+    href: "https://github.com/ryan7626",
     label: "GitHub",
   },
   {
     icon: <Linkedin className="w-[18px] h-[18px]" />,
-    href: "https://linkedin.com",
+    href: "https://www.linkedin.com/in/rautaryan",
     label: "LinkedIn",
   },
   {
     icon: <Mail className="w-[18px] h-[18px]" />,
-    href: "mailto:hello@example.com",
+    href: "mailto:aryansraut29@gmail.com",
     label: "Email",
   },
   {
     icon: <FileText className="w-[18px] h-[18px]" />,
     href: "/resume.pdf",
-    label: "Resume",
+    label: "Resume PDF",
   },
 ];
 

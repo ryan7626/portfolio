@@ -10,7 +10,7 @@ export function Education() {
           Education
         </h2>
         <p className="text-sm text-gray-400 text-center mb-14 tracking-wide">
-          Academic background
+          Computer science and mathematics foundation
         </p>
 
         {/* Timeline */}

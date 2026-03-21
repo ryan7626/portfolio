@@ -36,7 +36,7 @@ export function HeroContent() {
         className="text-4xl md:text-6xl font-medium tracking-tight text-gray-900 mb-3"
         style={{ letterSpacing: "-0.02em" }}
       >
-        Your Name
+        Aryan Raut
       </motion.h1>
 
       {/* Divider */}
@@ -50,7 +50,7 @@ export function HeroContent() {
         variants={itemVariants}
         className="text-sm md:text-base text-gray-400 font-light italic tracking-wide mb-6"
       >
-        &ldquo;Building things that matter.&rdquo;
+        AI/ML, full-stack systems, and data-driven product work.
       </motion.p>
 
       {/* Recruiter-facing description */}
@@ -58,8 +58,9 @@ export function HeroContent() {
         variants={itemVariants}
         className="text-base md:text-lg text-gray-500 font-light tracking-wide max-w-lg mx-auto leading-relaxed"
       >
-        Software engineer focused on building clean, scalable products.
-        Currently studying Computer Science and exploring full-stack development.
+        Rutgers computer science graduate focused on building intelligent,
+        scalable software across machine learning, analytics, and modern web
+        development.
       </motion.p>
     </motion.div>
   );

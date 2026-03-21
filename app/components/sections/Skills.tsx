@@ -43,7 +43,7 @@ export function Skills() {
           Skills
         </h2>
         <p className="text-sm text-gray-400 text-center mb-10 tracking-wide">
-          Interactive technology map
+          Core stack across software, AI/ML, and analytics
         </p>
 
         {/* Responsive graph container */}

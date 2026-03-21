@@ -12,7 +12,7 @@ export function Resume() {
           Resume
         </h2>
         <p className="text-sm text-gray-400 text-center mb-12 tracking-wide">
-          Full professional summary
+          Download the full PDF version
         </p>
 
         <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
@@ -20,15 +20,17 @@ export function Resume() {
           {/* Left: Action CTA */}
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left order-2 lg:order-1 px-4">
             <h3 className="text-2xl font-medium text-gray-900 mb-4">
-              Download My Resume
+              Keep a Copy of My Resume
             </h3>
             <p className="text-gray-500 mb-8 max-w-sm leading-relaxed">
-              Prefer a traditional document? Grab a copy of my resume in PDF format to keep on file or share with your team.
+              Grab a polished PDF version with my experience, technical
+              projects, and academic background for recruiting or hiring
+              review.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
               <a
-                href="/resume.pdf" // Placeholder path to public/resume.pdf
+                href="/resume.pdf"
                 download
                 className="flex items-center justify-center gap-2 px-8 py-3.5 bg-gray-900 hover:bg-gray-800 text-white rounded-full text-sm font-medium transition-colors shadow-sm w-full sm:w-auto"
               >
@@ -60,7 +62,7 @@ export function Resume() {
               <div className="w-full flex justify-between items-start mb-2">
                 <div className="space-y-2">
                   <div className="h-3 sm:h-4 w-24 sm:w-32 bg-gray-800 rounded-sm" />
-                  <div className="h-2 w-16 sm:w-20 bg-gray-300 rounded-sm" />
+                  <div className="h-2 w-24 sm:w-28 bg-gray-300 rounded-sm" />
                 </div>
                 <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-full bg-gray-100" />
               </div>

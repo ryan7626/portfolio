@@ -10,7 +10,7 @@ export function Experience() {
           Experience
         </h2>
         <p className="text-sm text-gray-400 text-center mb-14 tracking-wide">
-          Where I&rsquo;ve worked
+          Teaching, analytics, and product engineering experience
         </p>
 
         {/* Timeline */}

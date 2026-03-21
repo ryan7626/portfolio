@@ -135,7 +135,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
 
                 {/* About Project */}
                 <div className="mb-10">
-                  <h3 className="text-lg font-medium text-gray-900 mb-4">About the Project</h3>
+                  <h3 className="text-lg font-medium text-gray-900 mb-4">Project Overview</h3>
                   <p className="text-gray-600 leading-relaxed whitespace-pre-line">
                     {project.longDescription}
                   </p>
@@ -143,7 +143,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
 
                 {/* Technologies */}
                 <div className="mb-10">
-                  <h3 className="text-lg font-medium text-gray-900 mb-4">Technologies Used</h3>
+                  <h3 className="text-lg font-medium text-gray-900 mb-4">Tech Stack</h3>
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech) => (
                       <span

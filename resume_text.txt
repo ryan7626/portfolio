@@ -1,50 +1,61 @@
 Aryan Raut
-♂¶ap-¶arker-altNew Brunswick, NJ /envel⌢pearyansraut29@gmail.com ♂phone-alt+1 732 522 7716 /linkedin-inrautaryan /githubryan7626
+New Brunswick, NJ | aryansraut29@gmail.com | +1 732 522 7716 | LinkedIn: rautaryan | GitHub: ryan7626
+
 Experience
-Teaching Assistant — Rutgers University, New Brunswick, NJ Sept 2025 – Current
-◦Leading a class of 50 students in CS344, Design and analysis of Algorithms, holding weekly in-person recitations and office hours.
-Student Tutor — Rutgers Learning Center, New Brunswick, NJ Jan 2024 – Current
-◦Tutored 100+ students in various software/technology skills (AI, Python, Data Analytics, Numerical Analytics, R, C, DSA, etc.)
-via one-on-one appointments.
-Data Analyst — Enigma Technical Society, Manipal, KA Sept 2022 – Aug 2023
-◦Collaborated with the data analytics team and used predictive analytics through Data Mining to cut event resource waste by
-25% and expenses by 18%, improving decision-making speed by 40% with interactive Power BI dashboards.
-Web Developer — Medilance Healthcare, Chandigarh, PB May 2022 – Aug 2022
-◦Worked in Web Dev team, enhanced performance, reducing page load times by 10-15% through lazy loading and optimization,
-while improving user engagement by reorganizing the product catalog for better navigation of a large scale website system.
+
+Teaching Assistant - Rutgers University, New Brunswick, NJ | Sept 2025 - Present
+- Lead instruction for a class of 50 students in CS344: Design and Analysis of Algorithms, delivering weekly recitations and office hours to strengthen algorithmic thinking, problem-solving, and exam readiness.
+
+Student Tutor - Rutgers Learning Center, New Brunswick, NJ | Jan 2024 - Present
+- Provided one-on-one tutoring to 100+ students across AI, Python, data analytics, numerical methods, R, C, and data structures and algorithms, helping students build technical fluency and academic confidence.
+
+Data Analyst - Enigma Technical Society, Manipal, KA | Sept 2022 - Aug 2023
+- Partnered with the data analytics team to apply predictive analytics and data mining techniques, reducing event resource waste by 25% and expenses by 18%.
+- Built interactive Power BI dashboards that accelerated decision-making by 40% and improved visibility into event planning and resource allocation.
+
+Web Developer - Medilance Healthcare, Chandigarh, PB | May 2022 - Aug 2022
+- Improved website performance by implementing lazy loading and front-end optimization, reducing page load times by 10-15%.
+- Enhanced user engagement by restructuring product catalog navigation, making it easier to browse and interact with a large-scale healthcare web platform.
+
 Education
-Rutgers NB, State University of New Jersey — BSc Computer Science, Minor in Mathematics Sept 2023 – Dec 2025
-◦CGPA: 3.8/4.0 — Dean ’s Listin all semesters|Magna Cum Laude
-◦Coursework: AI, ML, Computer Security, Graphics, Artificial Neural Networks, OS, Data Structures and Algorithms.
+
+Rutgers University-New Brunswick, State University of New Jersey | B.S. in Computer Science, Minor in Mathematics | Sept 2023 - Dec 2025
+- GPA: 3.8/4.0 | Dean's List every semester | Magna Cum Laude
+- Relevant Coursework: Artificial Intelligence, Machine Learning, Computer Security, Computer Graphics, Artificial Neural Networks, Operating Systems, Data Structures, and Algorithms
+
 Research Projects
-Comparative Analysis of Language Translation Accuracy — /github
-◦Developed an evaluation framework comparing GPT-3.5, Google Translate, and OPUS-MT across language pairs, achieving
-7% higher BLEU scores with fine-tuned OPUS-MT for low-resource languages, and utilizing TensorFlow and Hadoop to
-cut training time by 35%.
-Credit Card Fraud Detection Model — /github
-◦Engineered an XGBoost-LSTM ensemble achieving 99.2% fraud detection accuracy on Kaggle’s dataset,improved F1-
-score from 0.82 to 0.91 using SMOTE , built a PyTorch anomaly detection system (1000+ transactions/sec), and reduced
-false positives by 40% through feature engineering and threshold optimization.
+
+Comparative Analysis of Language Translation Accuracy | GitHub
+- Developed a machine translation evaluation framework comparing GPT-3.5, Google Translate, and OPUS-MT across multiple language pairs.
+- Fine-tuned OPUS-MT for low-resource languages, achieving a 7% improvement in BLEU scores while using TensorFlow and Hadoop to reduce training time by 35%.
+
+Credit Card Fraud Detection Model | GitHub
+- Engineered an XGBoost-LSTM ensemble that achieved 99.2% fraud detection accuracy on Kaggle's dataset.
+- Improved F1 score from 0.82 to 0.91 using SMOTE, built a PyTorch anomaly detection pipeline capable of processing 1,000+ transactions per second, and reduced false positives by 40% through feature engineering and threshold optimization.
+
 Coding Projects
-Real Time Gesture Recognition System — /github
-◦Trained a GPU powered (CoreML) PyTorch model on a custom dataset of labeled landmarks to use in a real-time gesture control
-system(OpenCV) and increased accuracy and reduced inference time by 60%.
-◦Tools Used: Python, OpenCV, MediaPipe, PyTorch, CoreML, scikit-learn
-Face and Digit classification using Classifiers and Neural Networks — /github
-◦Implemented a robust vision pipeline using CNNs for digit and face recognition with 98.7% accuracy on MNIST digit
-classifier and 95.3% accuracy on face recognition.
-◦Tools Used: PyTorch, OpenCV, Scikit-learn, NumPy, CUDA for GPU acceleration
-AutoResearcher Pro — /github
-◦Built an agentic AI research assistant that autonomously processes academic queries, integrating OpenAI GPT-4 for generation
-and sentence-transformers for RAG-based document summarization and insight extraction.
-◦Tools Used: Python, LangChain, OpenAI API, HuggingFace Transformers, Streamlit.
-E-Commerce Store using MERN — /github
-◦Built a store that provides a seamless shopping experience with user authentication, product listings, cart management, order
-processing, and payment integration, utilizing a MongoDB and Express and Node to build REST APIs.
-◦Tools Used: MongoDB, Express.js, React, Node.js.
+
+Real-Time Gesture Recognition System | GitHub
+- Built a real-time gesture recognition system by training a GPU-accelerated PyTorch and CoreML model on a custom landmark dataset, improving accuracy and reducing inference time by 60%.
+- Tools: Python, OpenCV, MediaPipe, PyTorch, CoreML, scikit-learn
+
+Face and Digit Classification Using Classifiers and Neural Networks | GitHub
+- Implemented a computer vision pipeline using CNNs for digit and face recognition, achieving 98.7% accuracy on the MNIST digit classifier and 95.3% accuracy on face recognition tasks.
+- Tools: PyTorch, OpenCV, scikit-learn, NumPy, CUDA
+
+AutoResearcher Pro | GitHub
+- Built an agentic AI research assistant that autonomously processes academic queries using OpenAI GPT-4 and sentence-transformers for retrieval-augmented generation, document summarization, and insight extraction.
+- Tools: Python, LangChain, OpenAI API, Hugging Face Transformers, Streamlit
+
+E-Commerce Store Using MERN | GitHub
+- Developed a full-stack e-commerce platform with user authentication, product listings, cart management, order processing, and payment integration.
+- Built REST APIs with Node.js, Express.js, and MongoDB to support a seamless end-to-end shopping experience.
+- Tools: MongoDB, Express.js, React, Node.js
+
 Skills
-◦Programming: Python, Java, R, MySQL, JavaScript, TypeScript, Git, C, C++, MATLAB, Assembly(basic).
-◦ML/AI: Neural Networks, Deep Learning, Computer Vision, Natural Language Processing, Large Language Models
-◦ML Frameworks: PyTorch, TensorFlow, scikit-learn, Keras
-◦Web Dev: React, HTML/CSS, MongoDB, NoSQL, WebGL, Express, NodeJS, NextJS
-◦Math: Probability, Statistics, Advanced Calculus, Optimization, Actuarial Math
+
+- Programming: Python, Java, JavaScript, TypeScript, R, C, C++, MySQL, MATLAB, Git, Assembly (basic)
+- AI/ML: Machine Learning, Deep Learning, Neural Networks, Computer Vision, Natural Language Processing, Large Language Models, Retrieval-Augmented Generation, Predictive Analytics, Data Mining
+- Frameworks and Tools: PyTorch, TensorFlow, scikit-learn, Keras, OpenCV, MediaPipe, XGBoost, LangChain, Hugging Face Transformers, Power BI, CUDA, CoreML
+- Web Development: React, Next.js, Node.js, Express.js, HTML/CSS, MongoDB, NoSQL, REST APIs, WebGL
+- Mathematics: Probability, Statistics, Advanced Calculus, Optimization, Actuarial Mathematics

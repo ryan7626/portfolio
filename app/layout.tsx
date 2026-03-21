@@ -13,8 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "Personal portfolio",
+  title: "Aryan Raut | Software Engineer, AI/ML, and Full-Stack Developer",
+  description:
+    "Portfolio of Aryan Raut, a Rutgers computer science graduate building machine learning systems, full-stack applications, and data-driven products.",
 };
 
 export default function RootLayout({

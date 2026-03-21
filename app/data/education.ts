@@ -9,19 +9,19 @@ export interface EducationEntry {
 
 export const education: EducationEntry[] = [
   {
-    institution: "Rutgers NB, State University of New Jersey",
-    degree: "BSc Computer Science, Minor in Mathematics",
+    institution: "Rutgers University-New Brunswick",
+    degree: "B.S. in Computer Science, Minor in Mathematics",
     dateRange: "Sept 2023 — Dec 2025",
-    gpa: "3.8 / 4.0",
+    gpa: "3.8/4.0",
     coursework: [
       "Artificial Intelligence",
       "Machine Learning",
       "Computer Security",
-      "Graphics",
+      "Computer Graphics",
       "Artificial Neural Networks",
       "Operating Systems",
-      "Data Structures and Algorithms"
+      "Data Structures and Algorithms",
     ],
-    notes: "Dean's List in all semesters · Magna Cum Laude",
+    notes: "Dean's List every semester · Magna Cum Laude",
   },
 ];

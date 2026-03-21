@@ -48,7 +48,7 @@ export function Navigation() {
             onClick={() => setMobileOpen(false)}
             className="font-mono text-xs tracking-widest text-gray-500 select-none uppercase"
           >
-            AS.DEV
+            ARYAN.RAUT
           </a>
 
           {/* Desktop nav */}

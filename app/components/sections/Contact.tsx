@@ -6,19 +6,21 @@ export function Contact() {
     <SectionWrapper id="contact">
       <div className="max-w-2xl w-full text-center flex flex-col items-center">
         <h2 className="text-3xl font-medium tracking-tight text-gray-900 mb-2">
-          Get in Touch
+          Let&rsquo;s Connect
         </h2>
         
         <p className="text-gray-500 mb-10 max-w-lg mx-auto leading-relaxed">
-          I&rsquo;m currently looking for new opportunities. Whether you have a question or just want to say hi, I&rsquo;ll try my best to get back to you!
+          I&rsquo;m open to software engineering, AI/ML, and data-focused
+          opportunities. If you&rsquo;d like to collaborate, recruit, or simply
+          connect, I&rsquo;d be glad to hear from you.
         </p>
 
         {/* Primary Email CTA */}
         <a
-          href="mailto:hello@example.com"
+          href="mailto:aryansraut29@gmail.com"
           className="inline-flex items-center justify-center px-8 py-4 text-sm font-medium text-white bg-gray-900 hover:bg-gray-800 rounded-full transition-colors mb-16 shadow-xs hover:shadow-md"
         >
-          Say Hello
+          Email Me
         </a>
 
         {/* Reusing SocialLinks for consistency with Hero */}
