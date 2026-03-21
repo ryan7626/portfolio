@@ -15,7 +15,18 @@ export function ThemeToggle() {
   }, []);
 
   if (!mounted) {
-    return <div className="w-8 h-8 opacity-0" />; // placeholder to prevent layout shift
+    return (
+      <button
+        className="p-2 rounded-full text-gray-500 dark:text-gray-400 transition-colors duration-200 outline-hidden"
+        aria-label="Toggle theme"
+      >
+        <div className="relative w-4 h-4 overflow-hidden">
+          <div className="absolute inset-0 flex items-center justify-center">
+            <Moon className="w-4 h-4" />
+          </div>
+        </div>
+      </button>
+    );
   }
 
   return (
