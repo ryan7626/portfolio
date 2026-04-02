@@ -10,7 +10,7 @@ export const experience: ExperienceEntry[] = [
   {
     role: "Teaching Assistant",
     company: "Rutgers University",
-    dateRange: "Sept 2025 — Jan 2026",
+    dateRange: "August 2025 — January 2026",
     location: "New Brunswick, NJ",
     bullets: [
       "Lead weekly recitations and office hours for 50 students in CS344: Design and Analysis of Algorithms.",
@@ -21,7 +21,7 @@ export const experience: ExperienceEntry[] = [
   {
     role: "Student Tutor",
     company: "Rutgers Learning Center",
-    dateRange: "Jan 2024 — Jan 2026",
+    dateRange: "January 2024 — January 2026",
     location: "New Brunswick, NJ",
     bullets: [
       "Provide one-on-one tutoring to 100+ students across AI, Python, data analytics, numerical methods, R, C, and data structures and algorithms.",
@@ -31,7 +31,7 @@ export const experience: ExperienceEntry[] = [
   {
     role: "Data Analyst",
     company: "Enigma Technical Society",
-    dateRange: "Sept 2022 — Aug 2023",
+    dateRange: "September 2022 — August 2023",
     location: "Manipal, KA",
     bullets: [
       "Applied predictive analytics and data mining techniques to optimize event planning and resource allocation.",
@@ -42,7 +42,7 @@ export const experience: ExperienceEntry[] = [
   {
     role: "Web Developer",
     company: "Medilance Healthcare",
-    dateRange: "May 2022 — Aug 2022",
+    dateRange: "May 2022 — August 2022",
     location: "Chandigarh, PB",
     bullets: [
       "Improved frontend performance for a large-scale healthcare platform by implementing lazy loading and asset optimization.",
