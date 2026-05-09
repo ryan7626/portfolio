@@ -8,7 +8,6 @@ import { projects, projectCategories } from "@/app/data/projects";
 import type { ProjectEntry, ProjectFilter } from "@/app/data/projects";
 import { ProjectModal } from "./ProjectModal";
 import { cn } from "@/app/lib/utils";
-import { SplineSceneBasic } from "@/components/ui/demo";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import {
@@ -33,15 +32,6 @@ export function Projects() {
           title="Projects"
           description="Selected engineering and machine learning work"
         />
-
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={viewportOnce}
-          transition={{ duration: 0.6, ease: smoothEase }}
-        >
-          <SplineSceneBasic />
-        </motion.div>
 
         {/* Category Selector */}
         <motion.div
