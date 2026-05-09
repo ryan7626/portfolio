@@ -5,7 +5,7 @@ export interface EducationEntry {
   gpa?: string;
   coursework?: string[];
   notes?: string;
-  darkimage?: string;
+  darkImage?: string;
   lightImage?: string;
 }
 
@@ -25,7 +25,7 @@ export const education: EducationEntry[] = [
       "Data Structures and Algorithms",
     ],
     notes: "Dean's List every semester · Magna Cum Laude",
-    darkimage: "/helmetb.png",
+    darkImage: "/helmetb.png",
     lightImage: "/helmetw.png",
   },
 ];

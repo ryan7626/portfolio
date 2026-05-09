@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { sections } from "@/app/data/sections";
+import { profile } from "@/app/data/profile";
 import { useScrollProgress } from "@/app/lib/useScrollProgress";
 import { ThemeToggle } from "./ThemeToggle";
 
@@ -21,6 +22,19 @@ export function Navigation() {
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
+  }, [mobileOpen]);
+
+  useEffect(() => {
+    if (!mobileOpen) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMobileOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, [mobileOpen]);
 
   return (
@@ -49,7 +63,7 @@ export function Navigation() {
             onClick={() => setMobileOpen(false)}
             className="font-mono text-xs tracking-widest text-gray-500 select-none uppercase"
           >
-            ARYAN.RAUT
+            {profile.navLabel}
           </a>
 
           {/* Desktop nav & Theme */}
@@ -73,9 +87,12 @@ export function Navigation() {
           <div className="flex md:hidden items-center gap-2">
             <ThemeToggle />
             <button
-              onClick={() => setMobileOpen(!mobileOpen)}
+              type="button"
+              onClick={() => setMobileOpen((isOpen) => !isOpen)}
               className="p-1 text-gray-500 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
               aria-label="Toggle menu"
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-navigation"
             >
               {mobileOpen ? (
                 <X className="w-5 h-5" />
@@ -91,11 +108,12 @@ export function Navigation() {
       <AnimatePresence>
         {mobileOpen && visible && (
           <motion.nav
+            id="mobile-navigation"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="fixed top-16 left-0 right-0 z-40 md:hidden bg-white/65 border-b border-gray-200/50 shadow-sm"
+            className="fixed top-16 left-0 right-0 z-40 md:hidden bg-white/65 dark:bg-black/70 border-b border-gray-200/50 dark:border-white/10 shadow-sm"
             style={{
               backdropFilter: "saturate(180%) blur(20px)",
               WebkitBackdropFilter: "saturate(180%) blur(20px)",
@@ -107,7 +125,7 @@ export function Navigation() {
                   key={section.id}
                   href={`#${section.id}`}
                   onClick={() => setMobileOpen(false)}
-                  className="text-sm tracking-wide text-gray-500 hover:text-gray-900 transition-colors duration-200 py-1"
+                  className="text-sm tracking-wide text-gray-500 hover:text-gray-900 dark:hover:text-gray-100 transition-colors duration-200 py-1"
                 >
                   {section.label}
                 </a>

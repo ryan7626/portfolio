@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { profile } from "@/app/data/profile";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -36,7 +37,7 @@ export function HeroContent() {
         className="text-4xl md:text-6xl font-medium tracking-tight text-gray-900 dark:text-zinc-100 mb-3"
         style={{ letterSpacing: "-0.02em" }}
       >
-        Aryan Raut
+        {profile.name}
       </motion.h1>
 
       {/* Divider */}
@@ -58,9 +59,7 @@ export function HeroContent() {
         variants={itemVariants}
         className="text-base md:text-lg text-gray-500 dark:text-zinc-400 font-light tracking-wide max-w-lg mx-auto leading-relaxed"
       >
-        Rutgers computer science graduate focused on building intelligent,
-        scalable software across machine learning, analytics, and modern web
-        development.
+        {profile.summary}
       </motion.p>
     </motion.div>
   );

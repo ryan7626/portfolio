@@ -1,10 +1,19 @@
-const fs = require('fs');
-const pdf = require('pdf-parse');
+async function main() {
+  const { readFileSync } = await import("node:fs");
+  const { PDFParse } = await import("pdf-parse");
 
-let dataBuffer = fs.readFileSync('./Aryan_Raut_Resume.pdf');
+  const dataBuffer = readFileSync("./Aryan_Raut_Resume.pdf");
+  const parser = new PDFParse({ data: dataBuffer });
 
-pdf(dataBuffer).then(function(data) {
+  try {
+    const data = await parser.getText();
     console.log(data.text);
-}).catch(function(error){
-    console.error(error);
+  } finally {
+    await parser.destroy();
+  }
+}
+
+main().catch((error) => {
+  console.error(error);
+  process.exitCode = 1;
 });

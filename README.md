@@ -1,36 +1,29 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Aryan Raut Portfolio
 
-## Getting Started
+A Next.js portfolio for Aryan Raut, focused on AI/ML, full-stack engineering, project case studies, resume access, and contact links.
 
-First, run the development server:
+## Tech Stack
+
+- Next.js 16 with the App Router
+- React 19 and TypeScript
+- Tailwind CSS 4
+- Framer Motion
+- next-themes
+
+## Scripts
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run lint
+npm run typecheck
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The production build uses `next/font` with Google-hosted Geist fonts, so local builds need network access for font fetching.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Content
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Profile metadata lives in `app/data/profile.ts`.
+- Section content lives in `app/data`.
+- Resume assets are served from `public/resume.pdf` and `public/resume.png`.
+- `parse_resume.js` extracts text from `Aryan_Raut_Resume.pdf` using `pdf-parse`.

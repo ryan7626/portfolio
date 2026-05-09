@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, FileText } from "lucide-react";
 import { cn } from "@/app/lib/utils";
 import { ThemeToggle } from "../navigation/ThemeToggle";
+import { profile } from "@/app/data/profile";
 
 interface SocialLink {
   icon: React.ReactNode;
@@ -14,22 +15,22 @@ interface SocialLink {
 const links: SocialLink[] = [
   {
     icon: <Github className="w-[18px] h-[18px]" />,
-    href: "https://github.com/ryan7626",
+    href: profile.githubUrl,
     label: "GitHub",
   },
   {
     icon: <Linkedin className="w-[18px] h-[18px]" />,
-    href: "https://www.linkedin.com/in/rautaryan",
+    href: profile.linkedInUrl,
     label: "LinkedIn",
   },
   {
     icon: <Mail className="w-[18px] h-[18px]" />,
-    href: "mailto:aryansraut29@gmail.com",
+    href: `mailto:${profile.email}`,
     label: "Email",
   },
   {
     icon: <FileText className="w-[18px] h-[18px]" />,
-    href: "/resume.pdf",
+    href: profile.resumePath,
     label: "Resume PDF",
   },
 ];
@@ -56,9 +57,13 @@ const itemVariants = {
 
 interface SocialLinksProps {
   className?: string;
+  showThemeToggle?: boolean;
 }
 
-export function SocialLinks({ className }: SocialLinksProps) {
+export function SocialLinks({
+  className,
+  showThemeToggle = true,
+}: SocialLinksProps) {
   return (
     <motion.div
       variants={containerVariants}
@@ -75,7 +80,7 @@ export function SocialLinks({ className }: SocialLinksProps) {
           variants={itemVariants}
           href={link.href}
           target={link.href.startsWith("mailto:") ? undefined : "_blank"}
-          rel="noopener noreferrer"
+          rel={link.href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
           aria-label={link.label}
           className="text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 transition-colors duration-300"
           whileHover={{ scale: 1.1 }}
@@ -84,10 +89,17 @@ export function SocialLinks({ className }: SocialLinksProps) {
           {link.icon}
         </motion.a>
       ))}
-      <motion.div variants={itemVariants} className="w-px h-4 bg-gray-300 dark:bg-zinc-700 mx-1" />
-      <motion.div variants={itemVariants}>
-        <ThemeToggle />
-      </motion.div>
+      {showThemeToggle && (
+        <>
+          <motion.div
+            variants={itemVariants}
+            className="w-px h-4 bg-gray-300 dark:bg-zinc-700 mx-1"
+          />
+          <motion.div variants={itemVariants}>
+            <ThemeToggle />
+          </motion.div>
+        </>
+      )}
     </motion.div>
   );
 }

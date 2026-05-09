@@ -2,9 +2,11 @@
 
 import { useState } from "react";
 import { SectionWrapper } from "./SectionWrapper";
+import { SectionHeader } from "./SectionHeader";
 import { Download, FileText, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { profile } from "@/app/data/profile";
 
 export function Resume() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -12,12 +14,7 @@ export function Resume() {
   return (
     <SectionWrapper id="resume" className="bg-[#fafafa] dark:bg-zinc-950/50">
       <div className="max-w-4xl w-full flex flex-col items-center">
-        <h2 className="text-3xl font-medium tracking-tight text-gray-900 dark:text-zinc-100 mb-2 text-center">
-          Resume
-        </h2>
-        <p className="text-sm text-gray-400 dark:text-zinc-400 text-center mb-12 tracking-wide">
-          Download the full PDF version
-        </p>
+        <SectionHeader title="Resume" description="Download the full PDF version" />
 
         <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           
@@ -34,7 +31,7 @@ export function Resume() {
             
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
               <a
-                href="/resume.pdf"
+                href={profile.resumePath}
                 download
                 className="flex items-center justify-center gap-2 px-8 py-3.5 bg-gray-900 dark:bg-zinc-100 hover:bg-gray-800 dark:hover:bg-zinc-200 text-white dark:text-zinc-900 rounded-full text-sm font-medium transition-colors shadow-sm w-full sm:w-auto"
               >
@@ -42,7 +39,7 @@ export function Resume() {
                 Download PDF
               </a>
               <a
-                href="/resume.pdf"
+                href={profile.resumePath}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 px-8 py-3.5 bg-white dark:bg-zinc-800/50 border border-gray-200 dark:border-white/10 hover:border-gray-300 dark:hover:border-white/20 hover:bg-gray-50 dark:hover:bg-zinc-800 text-gray-700 dark:text-zinc-300 hover:text-gray-900 dark:hover:text-zinc-100 rounded-full text-sm font-medium transition-colors shadow-xs w-full sm:w-auto"
@@ -65,8 +62,9 @@ export function Resume() {
             >
               <Image 
                 src="/resume.png" 
-                alt="Resume Preview" 
+                alt={`${profile.name} resume preview`}
                 fill 
+                sizes="(min-width: 1024px) 384px, 320px"
                 className="object-contain object-top transition-transform duration-500 group-hover:scale-[1.02] p-2" 
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300" />
@@ -107,8 +105,9 @@ export function Resume() {
             >
               <Image 
                 src="/resume.png" 
-                alt="Resume Full View" 
+                alt={`${profile.name} resume full view`}
                 fill 
+                sizes="(min-width: 768px) 1024px, 100vw"
                 className="object-contain"
                 quality={100}
                 priority
