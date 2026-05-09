@@ -34,7 +34,8 @@ export function HeroContent() {
       {/* Name */}
       <motion.h1
         variants={itemVariants}
-        className="text-4xl md:text-6xl font-medium text-gray-900 dark:text-zinc-100 mb-3"
+        className="text-4xl md:text-6xl font-medium tracking-tight text-gray-900 dark:text-zinc-100 mb-3"
+        style={{ letterSpacing: "-0.02em" }}
       >
         {profile.name}
       </motion.h1>
